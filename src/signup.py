@@ -1,5 +1,5 @@
 import re
-from Handler import Handler
+from handler import Handler
 from model.security import make_secure_value
 from model.security import check_secure_value
 from model.user import User
