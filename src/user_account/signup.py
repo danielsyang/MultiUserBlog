@@ -1,6 +1,6 @@
 import re
-from handler import Handler
-from model.user import User
+from src.handler import Handler
+from src.model.user import User
 
 USERNAME_REGEX = re.compile(r'^[a-zA-Z0-9_-]{3,20}$')
 EMAIL_REGEX = re.compile(r'^[\S]+@[\S]+\.[\S]+$')

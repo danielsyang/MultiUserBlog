@@ -1,5 +1,5 @@
-from handler import Handler
-from model.user import User
+from src.handler import Handler
+from src.model.user import User
 
 
 class Login(Handler):
