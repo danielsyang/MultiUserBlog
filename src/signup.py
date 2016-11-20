@@ -60,10 +60,3 @@ class Signup(Handler):
         else:
             us = User.user_register(username, password, email)
             us.put()
-            us2 = User.user_by_name(us.name)
-
-        # print 'bora ver: ', us
-        # print 'NOME DO USUARIO SALVO: ', us.name
-
-
-        # print "WHAT THE FUCK"

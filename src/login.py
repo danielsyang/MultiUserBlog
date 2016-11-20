@@ -10,9 +10,6 @@ class Login(Handler):
         username = self.request.get('userLogin')
         password = self.request.get('userPass')
 
-        print "Usuario: ", username
-        print "Senha: ", password
-
         us = User.login(username, password)
 
         if us:
