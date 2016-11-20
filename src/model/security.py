@@ -12,7 +12,7 @@ def get_salt():
 
 
 def is_pass_valid(name, password, hashing):
-    salt = hashing.split(',')[0]
+    salt = hashing.split('|')[0]
     if hashing == make_password_hash(name, password, salt):
         return True
 
@@ -23,7 +23,7 @@ def make_password_hash(name, password, salt=None):
     if not salt:
         salt = get_salt()
 
-    ha = hashlib.sha256(name + password + salt).hexdigets()
+    ha = hashlib.sha256(name + password + salt).hexdigest()
     return '%s|%s' % (salt, ha)
 
 

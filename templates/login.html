@@ -1,24 +1,24 @@
 {% extends "header.html" %}
 
 {% block content %}
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <div class="blog-box">
-      <form class="form-group" method="post" action="/">
-        <div class="col-md-12">
-          <h3 class="text-uppercase text-center">Blog Login</h3>
-        </div>
-        <div class="form-group">
-          <label for="userLogin">Login</label>
-          <input type="text" id="userLogin" name="userLogin" class="form-control" >
-        </div>
-        <div class="form-group">
-          <label for="userPass">Password</label>
-          <input type="password" id="userPass" name="userPass" class="form-control" >
-        </div>
-        <input type="submit" class="btn btn-default" value="Login">
-      </form>
-    </div> <!-- blog-box -->
-  </div> <!-- col-md-6 -->
-</div> <!-- row -->
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="blog-box">
+                <form class="form-group" method="post" action="/">
+                    <div class="col-md-12">
+                        <h3 class="text-uppercase text-center">Blog Login</h3>
+                    </div>
+                    <div class="form-group">
+                        <label for="userLogin">Login</label>
+                        <input type="text" id="userLogin" name="userLogin" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="userPass">Password</label>
+                        <input type="password" id="userPass" name="userPass" class="form-control">
+                    </div>
+                    <input type="submit" class="btn btn-default" value="Login">
+                </form>
+            </div> <!-- blog-box -->
+        </div> <!-- col-md-6 -->
+    </div> <!-- row -->
 {% endblock %}

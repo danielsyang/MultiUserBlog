@@ -1,33 +1,40 @@
 {% extends "header.html" %}
 
 {% block content %}
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <div class="blog-box">
-      <form class="form-group" action="/" method="post">
-        <div class="col-md-12">
-          <h3 class="text-uppercase text-center">Blog Registration</h3>
-        </div>
-        <div class="form-group">
-          <label for="userLogin">Login</label>
-          <input type="text" name="userLogin" class="form-control" id="userLogin" >
-        </div>
-        <div class="form-group">
-          <label for="passLogin">Password</label>
-          <input type="text" name="userPass" class="form-control" id="passLogin" >
-        </div>
-        <div class="form-group">
-          <label for="passLoginVerif">Verify Password</label>
-          <input type="text" name="userPassVerif" class="form-control" id="passLoginVerif">
-        </div>
-        <div class="form-group">
-          <label for="emailLogin">Email</label>
-          <input type="text" name="userEmail" class="form-control" id="emailLogin">
-        </div>
-        <input type="submit" class="btn btn-default" value="Register">
-      </form>
-    </div> <!-- blog-box -->
-  </div> <!-- col-md-6 -->
-</div> <!-- row -->
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="blog-box">
+                <form class="form-group" action="/signup" method="post">
+                    <div class="col-md-12">
+                        <h3 class="text-uppercase text-center">Blog Signup</h3>
+                    </div>
+                    <div class="form-group">
+                        <label for="userLogin">Login</label>
+                        <input type="text" name="userLogin" class="form-control" id="userLogin" value="{{ username }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="passLogin">Password</label>
+                        <input type="text" name="userPass" class="form-control" id="passLogin">
+                    </div>
+                    <div class="form-group">
+                        <label for="passLoginVerif">Verify Password</label>
+                        <input type="text" name="userPassVerif" class="form-control" id="passLoginVerif">
+                    </div>
+                    <div class="form-group">
+                        <label for="emailLogin">Email</label>
+                        <input type="text" name="userEmail" class="form-control" id="emailLogin" value="{{ email }}">
+                    </div>
+                    <input type="submit" class="btn btn-default" value="Register">
+                </form>
+
+                <div class="alert-danger">
+                    <p class="">{{ error_username }}</p>
+                    <p class="">{{ error_email }}</p>
+                    <p class="">{{ error_password }}</p>
+                </div>
+
+            </div> <!-- blog-box -->
+        </div> <!-- col-md-6 -->
+    </div> <!-- row -->
 
 {% endblock %}

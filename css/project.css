@@ -1,4 +1,8 @@
+.alert-danger {
+    text-align: center;
+}
+
 .blog-box {
-  border: solid #f7f7f9;
-  padding: 35px;
+    border: solid #f7f7f9;
+    padding: 35px;
 }

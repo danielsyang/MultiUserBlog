@@ -1,9 +1,22 @@
 from handler import Handler
+from model.user import User
 
 
 class Login(Handler):
     def get(self):
-        self.render("login.html", text_value="")
+        self.render("login.html")
 
     def post(self):
-        print "WHAT THE FUCK"
+        username = self.request.get('userLogin')
+        password = self.request.get('userPass')
+
+        print "Usuario: ", username
+        print "Senha: ", password
+
+        us = User.login(username, password)
+
+        if us:
+            self.login(us)
+            self.redirect('/blog')
+        else:
+            print "WHAT THE FUCK"

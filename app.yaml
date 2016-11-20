@@ -9,7 +9,7 @@ handlers:
   static_dir: css
   
 - url: /.*
-  script: blog.app
+  script: router.app
 
 
 
