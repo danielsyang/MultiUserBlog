@@ -16,4 +16,4 @@ class Login(Handler):
             self.login(us)
             self.redirect('/blog')
         else:
-            print "WHAT THE FUCK"
+            self.render("login.html", text_error="Invalid login!")

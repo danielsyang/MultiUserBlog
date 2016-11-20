@@ -60,3 +60,4 @@ class Signup(Handler):
         else:
             us = User.user_register(username, password, email)
             us.put()
+            self.render('login.html', text_signup="User successfully created!")
