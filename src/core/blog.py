@@ -6,7 +6,7 @@ class Blog(Handler):
     def get(self):
         if self.user:
             posts = Post.all().order('-created')
-            self.render('blog/index.html', posts=posts)
+            self.render('blog/front_blog.html', posts=posts)
         else:
             self.redirect('/login')
 

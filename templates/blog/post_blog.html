@@ -1,0 +1,35 @@
+{% extends "blog/header_blog.html" %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-12">
+    <h2 class="text-center text-muted">New Post</h2>
+  </div>
+
+
+  <div class="col-md-12">
+    <form class="form-group" action="/blog/post" method="post" id="postBlog">
+
+      <div class="col-md-12">
+        <label for="subjectInput" class="strong">Subject</label>
+        <input type="text" name="subject" id="subjectInput" class="form-control">
+      </div>
+
+      <div class="col-md-12">
+        <label for="textInput" class="strong">Blog</label>
+        <textarea name="textarea" rows="15" id="textInput" class="form-control"></textarea>
+      </div>
+
+      <div class="col-md-12">
+        <input type="submit" value="Submit" class="btn btn-primary">
+      </div>
+
+    </form>
+  </div>
+  
+  <div class="alert-danger">
+    <p>{{error}}</p>
+  </div>
+
+</div>
+{% endblock %}
