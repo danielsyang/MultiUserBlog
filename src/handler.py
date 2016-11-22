@@ -34,12 +34,7 @@ class Handler(webapp2.RequestHandler):
 
     def read_cookie(self, name):
         cookie_val = self.request.cookies.get(name)
-
-        if cookie_val:
-            if check_secure_value(cookie_val):
-                return True
-
-        return False
+        return cookie_val and check_secure_value(cookie_val)
 
     def login(self, user):
         self.set_cookie('user_id', str(user.key().id()))
@@ -48,4 +43,3 @@ class Handler(webapp2.RequestHandler):
         self.response.headers.add_header(
             'Set-Cookie',
             'user_id=; Path=/')
-
