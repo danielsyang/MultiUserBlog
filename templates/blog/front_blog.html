@@ -1,8 +1,23 @@
 {% extends "blog/header_blog.html" %}
 
 {% block content %}
-<div class="row">
-  <h1>HELLO</h1>
-</div>
+  {% for p in posts%}
+    <div class="row">
 
+      <div class="col-md-12">
+        <h2 class="text-muted text-center">{{ p.subject }}</h2>
+      </div>
+      <div class="col-md-9">
+        <hr>
+      </div>
+      <div class="col-md-3">
+        <strong>{{ p.created.strftime("%d-%m-%Y at %H:%M" ) }}</strong>
+      </div>
+      <div class="col-md-12">
+        <p>
+          {{ p.content }}
+        </p>
+      </div>
+    </div>
+  {% endfor %}
 {% endblock %}

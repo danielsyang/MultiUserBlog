@@ -13,8 +13,7 @@ class NewPost(Handler):
         if subject and text_area:
             p = Post(subject=subject, content=text_area)
             p.put()
-            print p.key().id()
-            # self.redirect('/blog/')
+            self.redirect('/blog/%s' % str(p.key().id()))
         else:
             error = "Subject or Blog is invalid!"
             self.render("blog/new_post.html", error=error)

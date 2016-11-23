@@ -6,7 +6,15 @@
             <h2 class="text-center text-muted">{{ post.subject }}</h2>
         </div>
     </div>
-    <hr>
+    <div class="row">
+      <div class="col-md-9">
+        <hr>
+      </div>
+      <div class="col-md-3">
+        <strong>{{ post.created.strftime("%d-%m-%Y at %H:%M" ) }}</strong>
+      </div>
+    </div>
+
     <div class="row">
         <div class="col-md-12">
             {{ post.content }}
