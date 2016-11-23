@@ -1,18 +1,16 @@
 from src.handler import Handler
 from src.model.post import Post
+from google.appengine.ext import db
+
 
 class PostPage(Handler):
-    def get(self):
-        self.render("blog/post_blog.html")
+    def get(self, post_id):
+        key = db.Key.from_path('Post', int(post_id))
+        post = db.get(key)
 
-    def post(self):
-        subject = self.request.get("subject")
-        text_area = self.request.get("textarea")
-
-        if subject and text_area:
-            p = Post(subject=subject, content=text_area)
-            print p
+        if post:
+            print 'aqui o post>>', post
+            self.render("blog/post_blog.html", post=post)
         else:
-            error = "Subject or Blog is invalid!"
-            self.render("blog/post_blog.html", error=error)
-            # p.put()
+            self.error(404)
+            return
