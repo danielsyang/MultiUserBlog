@@ -1,9 +1,11 @@
 import os
+
 import jinja2
 import webapp2
-from model.security import make_secure_value
-from model.security import check_secure_value
+
 from model.user import User
+from src.user_account.security import check_secure_value
+from src.user_account.security import make_secure_value
 
 template_dir = os.path.join(os.path.dirname(__file__), '../templates')
 jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir))

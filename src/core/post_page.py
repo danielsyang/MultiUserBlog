@@ -9,7 +9,6 @@ class PostPage(Handler):
         post = db.get(key)
 
         if post:
-            print 'aqui o post>>', post
             self.render("blog/post_blog.html", post=post)
         else:
             self.error(404)

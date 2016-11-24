@@ -1,6 +1,7 @@
 from google.appengine.ext import db
-from security import make_password_hash
-from security import is_pass_valid
+
+from src.user_account.security import is_pass_valid
+from src.user_account.security import make_password_hash
 
 
 class User(db.Model):
