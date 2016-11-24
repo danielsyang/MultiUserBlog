@@ -10,3 +10,15 @@
 #postBlog .col-md-12 {
   padding-bottom: 10px;
 }
+
+#fronBlog .col-md-12 {
+  padding-bottom: 10px;
+}
+
+h2 #titleLink {
+  color: #818588;
+}
+
+h2 #titleLink:hover {
+  text-decoration: none;
+}

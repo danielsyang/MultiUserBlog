@@ -5,11 +5,13 @@ from google.appengine.ext import db
 
 class PostPage(Handler):
     def get(self, post_id):
-        key = db.Key.from_path('Post', int(post_id))
-        post = db.get(key)
+        if self.user:
+            key = db.Key.from_path('Post', int(post_id))
+            post = db.get(key)
 
-        if post:
-            self.render("blog/post_blog.html", post=post)
+            if post:
+                self.render("blog/post_blog.html", post=post)
+            else:
+                self.error(404)                
         else:
-            self.error(404)
-            return
+            self.redirect('/login')

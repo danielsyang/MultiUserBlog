@@ -4,7 +4,10 @@ from src.model.post import Post
 
 class NewPost(Handler):
     def get(self):
-        self.render("blog/new_post.html")
+        if self.user:
+            self.render("blog/new_post.html")
+        else:
+            self.redirect('/login')
 
     def post(self):
         subject = self.request.get("subject")
