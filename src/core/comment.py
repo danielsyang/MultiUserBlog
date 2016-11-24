@@ -14,8 +14,7 @@ class Comment(Handler):
         if commentInput:
             c = Comment(content=commentInput, post_id=post.key(), owner_id=self.user.key())
             c.put()
+            self.redirect('/blog/post/%s' %str(post.key().id()))
         else:
             error = "Comment is blank!"
             self.render('/blog/post/%s' % str(post.key().id()), error=error)
-        print commentInput
-        print post
