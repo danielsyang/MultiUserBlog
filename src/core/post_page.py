@@ -10,9 +10,10 @@ class PostPage(Handler):
             key = db.Key.from_path('Post', int(post_id))
             post = db.get(key)
             comment = Comment.all().filter('post_id = ', post.key())
+            print comment
 
             if post:
-                self.render("blog/post_blog.html", post=post, comment=comment)
+                self.render("blog/post_blog.html", post=post, comment=comment, cookie_id=self.user.key().id())
             else:
                 self.error(404)
         else:

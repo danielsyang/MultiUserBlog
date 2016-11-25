@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <title>Blog</title>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <link rel="stylesheet" href="../css/project.css">
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <nav class="navbar navbar-default">
-          <div class="navbar-header">
-            <strong><a href="/blog" class="navbar-brand">Blog</a></strong>            
-          </div>
-          <ul class="nav navbar-nav">
-            <li><a href="/blog/post">Create post</a></li>
-            <li><a href="/blog/my">My post</a></li>
-            <li><a href="/logout">Logout</a></li>
-          </ul>
-        </nav>
-      </div>
-      {% block content %}
-      {% endblock %}
-    </div>
-  </body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Blog</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/project.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <nav class="navbar navbar-default">
+                    <div class="navbar-header">
+                        <strong><a href="/blog" class="navbar-brand">Blog</a></strong>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="/blog/post">Create post</a></li>
+                        <li><a href="/blog/my">My post</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+        {% block content %}
+        {% endblock %}
+        </div>
+    </body>
 </html>

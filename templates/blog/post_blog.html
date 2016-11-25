@@ -1,13 +1,14 @@
 {% extends "blog/header_blog.html" %}
 
 {% block content %}
-    <div class="row" id="fronBlog" >
+    <div class="row" id="fronBlog">
 
         <div class="col-md-12">
             <h2 class="text-center text-muted">{{ post.subject }}</h2>
         </div>
         <div class="col-md-12">
-          <strong>{{ post.created.strftime("%d-%m-%Y at %H:%M" ) }}</strong> || Created by:  <strong>{{ post.owner_id.name }}</strong>
+            <strong>{{ post.created.strftime("%d-%m-%Y at %H:%M" ) }}</strong> || Created by:
+            <strong>{{ post.owner_id.name }}</strong>
         </div>
 
     </div>
@@ -15,32 +16,48 @@
     <div class="row">
         <div class="col-md-12 text-justify">
             {{ post.content }}
+            {% if cookie_id == post.owner_id.key().id() %}
+                <a href="/blog/comment/edit/{{ post.key().id() }}">Edit</a>
+            {% endif %}
+
         </div>
-    </div>
-
-    <div class="row">
-      {% for c in comment%}
-
-      {{ c.content }}
-
-      {% endfor %}
-
     </div>
 
     <hr>
 
     <div class="row">
-      <div class="col-md-4">
+        <div class="col-md-12">
+            <h3>Comments:</h3>
+        </div>
+    </div>
+
+    {% for c in comment %}
+
+        <div class="row">
+            <div class="col-md-offset-1 col-md-6">
+                Written by  <strong>{{ c.owner_id.name }}</strong>
+            </div>
+
+            <div class="col-md-offset-1 col-md-11 text-muted">
+                {{ c.content }}
+            </div>
+        </div>
+    {% endfor %}
+
+    <hr>
+
+    <div class="row">
+    <div class="col-md-4">
         <form class="form-group" action="/blog/comment" method="post" id="postBlog">
-          <input type="hidden" name="postID" value="{{ post.key().id() }}">
-          <label for="commentInput" class="strong">Comment</label>
-          <textarea name="commentInput" rows="5" id="commentInput" class="form-control"></textarea>
-          <input type="submit" value="Add comment" class="btn btn-primary">
+            <input type="hidden" name="postID" value="{{ post.key().id() }}">
+            <label for="commentInput" class="strong">Comment</label>
+            <textarea name="commentInput" rows="5" id="commentInput" class="form-control"></textarea>
+            <input type="submit" value="Add comment" class="btn btn-primary">
         </form>
     </div>
     <div class="row">
 
-      {{ error }}
+        {{ error }}
 
     </div>
 {% endblock %}

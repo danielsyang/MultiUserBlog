@@ -6,24 +6,25 @@
 
             <div class="col-md-12">
                 <h2 class="text-muted text-center">
-                  <a href="/blog/post/{{ p.key().id() }}" id="titleLink">{{ p.subject }}</a>
+                    <a href="/blog/post/{{ p.key().id() }}" id="titleLink">{{ p.subject }}</a>
                 </h2>
             </div>
             <div class="col-md-12">
-                <strong>{{ p.created.strftime("%d-%m-%Y at %H:%M") }}</strong> || Created by: <strong>{{ p.owner_id.name }}</strong>
+                <strong>{{ p.created.strftime("%d-%m-%Y at %H:%M") }}</strong> || Created by:
+                <strong>{{ p.owner_id.name }}</strong>
             </div>
 
         </div>
         <div class="row">
-          <div class="col-md-12 text-justify">
-            {{ p.content }}
-          </div>
+            <div class="col-md-12 text-justify">
+                {{ p.content }}
+            </div>
         </div>
 
         <div class="row">
-          <div class="col-md-12">
-            <hr>
-          </div>
+            <div class="col-md-12">
+                <hr>
+            </div>
         </div>
     {% endfor %}
 {% endblock %}

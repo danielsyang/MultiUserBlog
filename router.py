@@ -7,7 +7,8 @@ from src.core.blog import Blog
 from src.core.new_post import NewPost
 from src.core.post_page import PostPage
 from src.core.my_post import MyPost
-from src.core.comment import Comment
+from src.core.comment_post import CommentPost
+from src.core.edit_post import EditPost
 
 app = webapp2.WSGIApplication(
     [('/', Index),
@@ -18,5 +19,6 @@ app = webapp2.WSGIApplication(
      ('/blog/my', MyPost),
      ('/blog/post', NewPost),
      ('/blog/post/([0-9]+)', PostPage),
-     ('/blog/comment', Comment)],
+     ('/blog/comment', CommentPost),
+     ('/blog/comment/edit/([0-9]+)', EditPost)],
     debug=True)
