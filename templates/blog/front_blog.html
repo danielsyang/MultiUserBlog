@@ -21,6 +21,12 @@
             </div>
         </div>
 
+        {% if p.owner_id.key().id() != userId %}
+          <a href="#" class="btn btn-primary">Like</a>
+        {% else %}
+          <a href="#" class="btn disabled btn-danger">Like</a>
+        {% endif %}
+
         <div class="row">
             <div class="col-md-12">
                 <hr>

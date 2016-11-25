@@ -4,13 +4,16 @@ from src.model.user import User
 
 class Login(Handler):
     def get(self):
-        self.render("login.html")
+        if not self.user:
+            self.render("login.html")
+        else:
+            self.redirect("/blog")
 
     def post(self):
         username = self.request.get('userLogin')
         password = self.request.get('userPass')
 
-        us = User.login(username, password)        
+        us = User.login(username, password)
 
         if us:
             self.login(us)

@@ -3,4 +3,7 @@ from src.handler import Handler
 
 class Index(Handler):
     def get(self):
-        self.render('index.html')
+        if not self.user:
+            self.render('index.html')
+        else:
+            self.redirect("/blog")

@@ -42,7 +42,10 @@ def signup_verif(name, password, pass_verif, email):
 
 class Signup(Handler):
     def get(self):
-        self.render('signup.html')
+        if not self.user:
+            self.render('signup.html')
+        else:
+            self.redirect('/blog')
 
     def post(self):
 
