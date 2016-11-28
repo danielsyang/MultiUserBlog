@@ -13,14 +13,17 @@ class EditPost(Handler):
             self.redirect('/login')
 
     def post(self, post_id):
-        key = db.Key.from_path('Post', int(post_id))
-        post = db.get(key)
+        if self.user:
+            key = db.Key.from_path('Post', int(post_id))
+            post = db.get(key)
 
-        subject = self.request.get('subject')
-        content = self.request.get('textarea')
+            subject = self.request.get('subject')
+            content = self.request.get('textarea')
 
-        post.subject = subject
-        post.content = content
+            post.subject = subject
+            post.content = content
 
-        post.put()
-        self.redirect('/blog/post/%s' % str(post_id))
+            post.put()
+            self.redirect('/blog/post/%s' % str(post_id))
+        else:
+            self.redirect('/login')
