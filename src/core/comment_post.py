@@ -16,9 +16,6 @@ class CommentPost(Handler):
                 c = Comment(content=comment_input, post_id=post.key(),
                             owner_id=self.user.key())
                 c.put()
-                self.render('blog/post/%s' % str(post.key().id()))
-            else:
-                error = "Comment is blank!"
-                self.render('/blog/post/%s' % str(post.key().id()), error=error)
+                self.redirect(self.request.referer)                
         else:
             self.redirect('/login')

@@ -14,7 +14,7 @@ class PostPage(Handler):
 
             if post:
                 self.render("blog/post_blog.html", post=post,
-                            comment=comment, cookie_id=self.user.key().id())
+                            comment=comment)
             else:
                 self.error(404)
         else:

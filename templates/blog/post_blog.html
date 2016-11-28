@@ -16,10 +16,6 @@
     <div class="row">
         <div class="col-md-12 text-justify">
             {{ post.content }}
-            {% if cookie_id == post.owner_id.key().id() %}
-                <a href="/blog/comment/edit/{{ post.key().id() }}">Edit</a>
-            {% endif %}
-
         </div>
     </div>
 
@@ -51,13 +47,8 @@
         <form class="form-group" action="/blog/comment" method="post" id="postBlog">
             <input type="hidden" name="postID" value="{{ post.key().id() }}">
             <label for="commentInput" class="strong">Comment</label>
-            <textarea name="commentInput" rows="5" id="commentInput" class="form-control"></textarea>
+            <textarea name="commentInput" rows="5" id="commentInput" class="form-control" required></textarea>
             <input type="submit" value="Add comment" class="btn btn-primary">
         </form>
-    </div>
-    <div class="row">
-
-        {{ error }}
-
     </div>
 {% endblock %}
