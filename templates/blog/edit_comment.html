@@ -1,0 +1,25 @@
+{% extends "blog/header_blog.html" %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-4">
+    <p class="alert-danger">
+      {{ error }}
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+      <form class="form-group" action="/blog/comment/edit" method="post" id="postBlog">
+          <input type="hidden" name="comment_id" value="{{ comment_id }}">
+          <label for="commentInput" class="strong">Comment</label>
+          <textarea name="comment_input" rows="5" id="commentInput"
+                    class="form-control" required {% if error %} disabled {% endif %}>{{ content }}</textarea>
+          <input type="submit" value="Add comment" class="btn btn-primary" {% if error %} disabled {% endif %}>
+      </form>
+  </div>
+</div>
+
+{% endblock %}

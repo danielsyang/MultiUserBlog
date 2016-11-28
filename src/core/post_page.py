@@ -9,8 +9,7 @@ class PostPage(Handler):
         if self.user:
             key = db.Key.from_path('Post', int(post_id))
             post = db.get(key)
-            comment = Comment.all().filter('post_id = ', post.key())
-            print comment
+            comment = Comment.all().filter('post_id = ', post.key())            
 
             if post:
                 self.render("blog/post_blog.html", post=post,

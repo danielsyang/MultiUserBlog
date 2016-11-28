@@ -30,12 +30,17 @@
     {% for c in comment %}
 
         <div class="row">
-            <div class="col-md-offset-1 col-md-6">
+            <div class="col-md-offset-1 col-md-11">
                 Written by  <strong>{{ c.owner_id.name }}</strong>
             </div>
 
             <div class="col-md-offset-1 col-md-11 text-muted">
                 {{ c.content }}
+            </div>
+
+            <div class="col-md-offset-1 col-md-11">
+                <a href="/blog/comment/edit/{{ c.key().id() }}">Edit</a>
+                <a href="/blog/comment/delete/{{ c.key().id() }}">Delete</a>
             </div>
         </div>
     {% endfor %}
@@ -43,12 +48,13 @@
     <hr>
 
     <div class="row">
-    <div class="col-md-4">
-        <form class="form-group" action="/blog/comment" method="post" id="postBlog">
-            <input type="hidden" name="postID" value="{{ post.key().id() }}">
-            <label for="commentInput" class="strong">Comment</label>
-            <textarea name="commentInput" rows="5" id="commentInput" class="form-control" required></textarea>
-            <input type="submit" value="Add comment" class="btn btn-primary">
-        </form>
+      <div class="col-md-4">
+          <form class="form-group" action="/blog/comment" method="post" id="postBlog">
+              <input type="hidden" name="postID" value="{{ post.key().id() }}">
+              <label for="commentInput" class="strong">Comment</label>
+              <textarea name="commentInput" rows="5" id="commentInput" class="form-control" required></textarea>
+              <input type="submit" value="Add comment" class="btn btn-primary">
+          </form>
+      </div>
     </div>
 {% endblock %}
