@@ -8,7 +8,8 @@ class EditPost(Handler):
         if self.user:
             key = db.Key.from_path('Post', int(post_id))
             post = db.get(key)
-            self.render("blog/new_post.html", subject=post.subject, content=post.content, post_id=post.key().id())
+            self.render("blog/new_post.html", subject=post.subject,
+                        content=post.content, post_id=post.key().id())
         else:
             self.redirect('/login')
 

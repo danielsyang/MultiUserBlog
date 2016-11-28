@@ -13,7 +13,8 @@ class CommentPost(Handler):
             post = db.get(key)
 
             if comment_input:
-                c = Comment(content=comment_input, post_id=post.key(), owner_id=self.user.key())
+                c = Comment(content=comment_input, post_id=post.key(),
+                            owner_id=self.user.key())
                 c.put()
                 self.redirect('/blog/post/%s' % str(post.key().id()))
             else:

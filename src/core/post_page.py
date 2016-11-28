@@ -13,7 +13,8 @@ class PostPage(Handler):
             print comment
 
             if post:
-                self.render("blog/post_blog.html", post=post, comment=comment, cookie_id=self.user.key().id())
+                self.render("blog/post_blog.html", post=post,
+                            comment=comment, cookie_id=self.user.key().id())
             else:
                 self.error(404)
         else:
