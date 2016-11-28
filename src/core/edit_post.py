@@ -18,13 +18,18 @@ class EditPost(Handler):
             key = db.Key.from_path('Post', int(post_id))
             post = db.get(key)
 
-            subject = self.request.get('subject')
-            content = self.request.get('textarea')
+            if self.user.key() == post.owner_id.key():
 
-            post.subject = subject
-            post.content = content
+                subject = self.request.get('subject')
+                content = self.request.get('textarea')
 
-            post.put()
-            self.redirect('/blog/post/%s' % str(post_id))
+                post.subject = subject
+                post.content = content
+
+                post.put()
+                self.redirect('/blog/post/%s' % str(post_id))
+            else:
+                self.render("blog/post_blog.html", error="Error! You can only edit your own post.")
+
         else:
             self.redirect('/login')

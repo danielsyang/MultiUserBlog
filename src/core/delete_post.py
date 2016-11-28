@@ -8,7 +8,10 @@ class DeletePost(Handler):
         if self.user:
             key = db.Key.from_path('Post', int(post_id))
             post = db.get(key)
-            post.delete()
+            if post.owner_id.key() == self.user.key():
+                post.delete()
+            else:
+                self.render("blog/front_blog.html", status="Error! This is not your post.")
             self.render("blog/front_blog.html", status='Post deleted!')
         else:
             self.redirect('/login')
