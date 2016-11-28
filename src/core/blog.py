@@ -9,6 +9,3 @@ class Blog(Handler):
             self.render('blog/front_blog.html', posts=posts)
         else:
             self.redirect('/login')
-
-            # def post(self):
-            #     print 'WTF!'
