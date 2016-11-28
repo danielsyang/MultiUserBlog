@@ -1,7 +1,7 @@
-<h1>BlogProject</h1>
+# BlogProject
 
-<p> This blog project is the third project in Full Stack Web Developer. <p>
-<p> It was all written in Python using <strong>webapp2, jinja2 and Google App Engine</strong> framework. </p>
-<p> All the code is found in <strong>src/</strong> and the templates are found in <strong>templates/</strong>
+This blog project is the third project in Full Stack Web Developer.
+It was all written in Python using **webapp2, jinja2 and Google App Engine** framework.
+All the code is found in *src/* and the templates are found in *templates/*.
 
-<p> This project is live <a href="https://blog-udacity-150618.appspot.com/">here</a></p>
+This project is live [here]https://blog-udacity-150618.appspot.com/
