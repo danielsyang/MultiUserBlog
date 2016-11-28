@@ -9,6 +9,7 @@ from src.core.post_page import PostPage
 from src.core.my_post import MyPost
 from src.core.comment_post import CommentPost
 from src.core.edit_post import EditPost
+from src.core.delete_post import DeletePost
 
 app = webapp2.WSGIApplication(
     [('/', Index),
@@ -17,6 +18,7 @@ app = webapp2.WSGIApplication(
      ('/logout', Logout),
      ('/blog', Blog),
      ('/blog/my', MyPost),
+     ('/blog/delete/([0-9]+)', DeletePost),
      ('/blog/post', NewPost),
      ('/blog/post/([0-9]+)', PostPage),
      ('/blog/comment', CommentPost),
