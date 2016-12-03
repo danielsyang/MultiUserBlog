@@ -1,6 +1,6 @@
 # BlogProject
 
-This blog project is the third project in Full Stack Web Developer.
+This blog project is the third project from Full Stack Web Developer.
 
 It was all written in Python using **webapp2, jinja2 and Google App Engine** framework.
 
